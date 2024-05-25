@@ -1,10 +1,12 @@
 import CounterButton from './CounterButton';
 import { useContext } from 'react';
 import { CounterContext } from '../context/CounterProvider';
+import DecrementButton from './DecrementButton';
+import CounterForm from './CounterForm';
 
 function CardBody() {
   const {
-    counterState: { count },
+    state: { count },
   } = useContext(CounterContext);
 
   return (
@@ -12,6 +14,8 @@ function CardBody() {
       <legend>CardBody</legend>
       <p>Count: {count}</p>
       <CounterButton />
+      <DecrementButton />
+      <CounterForm />
     </fieldset>
   );
 }

@@ -1,17 +1,19 @@
-import { createContext, useState } from 'react';
+import { createContext, useReducer } from 'react';
+import {
+  INITIAL_COUNTER_STATE,
+  counterReducer,
+} from '../reducers/counterReducer';
 
 const CounterContext = createContext({
-  counterState: { count: 0 },
-  setCounterState: () => {},
+  state: { count: 0 },
+  dispatch: () => {},
 });
 
 function CounterProvider({ children }) {
-  const [counterState, setCounterState] = useState({
-    count: 0,
-  });
+  const [state, dispatch] = useReducer(counterReducer, INITIAL_COUNTER_STATE);
 
   return (
-    <CounterContext.Provider value={{ counterState, setCounterState }}>
+    <CounterContext.Provider value={{ state, dispatch }}>
       {children}
     </CounterContext.Provider>
   );

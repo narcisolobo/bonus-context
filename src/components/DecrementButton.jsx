@@ -1,13 +1,13 @@
 import { useContext } from 'react';
 import { CounterContext } from '../context/CounterProvider';
 
-function CounterButton() {
+function DecrementButton() {
   const { dispatch } = useContext(CounterContext);
 
   const clickHandler = () => {
-    dispatch({ type: 'INCREMENT_COUNT' });
+    dispatch({ type: 'DECREMENT_COUNT' });
   };
 
-  return <button onClick={clickHandler}>Increment Count</button>;
+  return <button onClick={clickHandler}>Decrement Count</button>;
 }
-export default CounterButton;
+export default DecrementButton;
